@@ -1,0 +1,27 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
+
+
+driver = webdriver.Chrome()
+url = 'https://comic.naver.com/webtoon/weekday'
+driver.get(url)
+
+driver.find_element_by_css_selector('.snb_search_text').send_keys('외모지상주의')
+driver.find_element_by_css_selector('.snb_search_text').send_keys(Keys.ENTER)
+driver.find_element_by_link_text('외모지상주의').click()
+
+element = driver.find_element_by_xpath('//*[@id="content"]/div[1]/div[2]/p[1]')
+
+print(element.text)
+
+
+# driver.get('https://comic.naver.com/webtoon/weekday')
+
+# driver.find_element_by_css_selector('.snb_search_text').send_keys('외모지상주의')
+# driver.find_element_by_css_selector('.snb_search_text').send_keys(Keys.ENTER)
+# driver.find_element_by_link_text('외모지상주의').click()
+
+# elem = driver.find_element_by_xpath('//*[@id="content"]/div[1]/div[2]/h2/span[2]')
+
+# print(elem.text)
